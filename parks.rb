@@ -4,7 +4,7 @@ puts "which park do you want?"
 
 class Parks
 
-  attr_reader :name
+  attr_reader :names
 
   def initialize(zip_code)
     @zip_code = zip_code
@@ -26,3 +26,5 @@ class Parks
   end
 
 end
+
+
