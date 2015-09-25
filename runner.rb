@@ -1,5 +1,6 @@
 require_relative 'basketball.rb'
 require_relative 'playgrounds.rb'
+require_relative 'parks.rb'
 
 
 
@@ -15,3 +16,6 @@ postcode = gets.chomp
 	print '.'
 	sleep(0.1)
 end
+puts "."
+park = Parks.new(postcode)
+puts park.detail
