@@ -14,7 +14,7 @@ class Basketball
 	end
 
 	def summary 
-		"There are #{@names.length} courts."
+		"There are #{@names.length} basketball courts."
 	end
 
 	def detail
