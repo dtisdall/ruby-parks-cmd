@@ -1,4 +1,5 @@
 require_relative 'basketball.rb'
+require_relative 'playgrounds.rb'
 
 
 
@@ -6,20 +7,11 @@ require_relative 'basketball.rb'
 # puts bball.summary
 # puts "This is the detail"
 
-
-loop do
-	print ">"
-	input = gets.chomp
-
-	case input.split(' ').first
-	when "exit"
-		exit
-	when "amenity"
-		case input.split(' ')[1]
-		when "basketball"
-			bball = Basketball.new(input.split(' ')[2])
-			puts bball.detail
-		end
-	end
+puts "Welcome to Prkly, the most 2.0 of all command line applications, now with extra XML\n\n"
+puts "What is your postcode?\n"
+postcode = gets.chomp
+"\nLet me find some parks for you near #{postcode}\n"
+5.times do 
+	print '.'
+	sleep(0.1)
 end
-
