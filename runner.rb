@@ -1,6 +1,7 @@
 require_relative 'basketball.rb'
 require_relative 'playgrounds.rb'
 require_relative 'parks.rb'
+require_relative 'running_tracks.rb'
 
 
 
@@ -30,8 +31,10 @@ end
 puts "\nThis is what this park has:\n\n"
 bball = Basketball.new(selected_park)
 pground = Playground.new(selected_park)
+rtrack = RunningTracks.new(selected_park)
 puts "1. #{bball.summary}"
 puts "2. #{pground.summary}"
+puts "3. #{rtrack.summary}"
 puts "\nWhich amenity would you like to know about?\n\n"
 amenity = gets.chomp
 case amenity
@@ -39,6 +42,8 @@ when "1"
 	puts bball.detail
 when "2"
 	puts pground.detail
+when "3"
+	puts rtrack.detail
 else
 	puts "I pity the fool [who can't select an amenity]"
 end
