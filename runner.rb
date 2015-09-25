@@ -2,6 +2,7 @@ require_relative 'basketball.rb'
 require_relative 'playgrounds.rb'
 require_relative 'parks.rb'
 require_relative 'running_tracks.rb'
+require_relative 'concessions.rb'
 
 
 
@@ -22,6 +23,7 @@ park = Parks.new(postcode)
 if park.names.empty?
   puts "\e[H\e[2J"
   puts "No parks found for #{postcode}. Make sure you enter a zip code that's in New York City."
+  exit
 else
   puts "\e[H\e[2J"
   puts park.summary
@@ -39,9 +41,11 @@ puts "\nHere is what that park has to offer:\n\n"
 bball = Basketball.new(selected_park)
 pground = Playground.new(selected_park)
 rtrack = RunningTracks.new(selected_park)
+conc = Concession.new(selected_park)
 puts "1. #{bball.summary}"
 puts "2. #{pground.summary}"
 puts "3. #{rtrack.summary}"
+puts "4. #{conc.summary}"
 puts "\nWhich of these amenities would you like to know about? Enter a number.\n\n"
 amenity = gets.chomp
 case amenity
@@ -51,6 +55,8 @@ when "2"
 	puts pground.detail
 when "3"
 	puts rtrack.detail
+when "4"
+	puts conc.detail
 else
 	puts "I pity the fool [who can't select an amenity]"
 end
