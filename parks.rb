@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'active_support'
-puts "which park do you want?"
 
 class Parks
 
@@ -18,7 +17,7 @@ class Parks
   end
 
   def summary
-    "There are #{@names.length} parks."
+    "There are #{@names.length} parks near you."
   end
 
   def detail

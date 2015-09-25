@@ -8,34 +8,41 @@ require_relative 'running_tracks.rb'
 # puts "This is the summary"
 # puts bball.summary
 # puts "This is the detail"
-
-puts "\n\n\nWelcome to Prkly, the most 2.0 of all command line applications, now with extra XML\n\n"
-puts "What is your postcode?\n"
+puts "\e[H\e[2J"
+puts "Welcome to Prkly, the most 2.0 of all command line applications, now with extra XML\n\n"
+puts "What is your zip code?\n"
 postcode = gets.chomp
 "\nLet me find some parks for you near #{postcode}\n"
-5.times do 
+5.times do
 	print '.'
 	sleep(0.1)
 end
 puts "."
 park = Parks.new(postcode)
-puts "\nHere are your parks. " + park.summary
-puts park.detail
-puts "\nWhich park would you like to know about?\n"
+if park.names.empty?
+  puts "\e[H\e[2J"
+  puts "No parks found for #{postcode}. Make sure you enter a zip code that's in New York City."
+else
+  puts "\e[H\e[2J"
+  puts park.summary
+  puts
+  puts park.detail
+end
+puts "\nWhich of these parks would you like to know more about? Enter a park ID to learn more.\n"
 selected_park = gets.chomp.upcase
 puts "\nLet me get details for #{selected_park}\n"
-5.times do 
+5.times do
 	print '.'
 	sleep(0.1)
 end
-puts "\nThis is what this park has:\n\n"
+puts "\nHere is what that park has to offer:\n\n"
 bball = Basketball.new(selected_park)
 pground = Playground.new(selected_park)
 rtrack = RunningTracks.new(selected_park)
 puts "1. #{bball.summary}"
 puts "2. #{pground.summary}"
 puts "3. #{rtrack.summary}"
-puts "\nWhich amenity would you like to know about?\n\n"
+puts "\nWhich of these amenities would you like to know about? Enter a number.\n\n"
 amenity = gets.chomp
 case amenity
 when "1"
